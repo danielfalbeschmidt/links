@@ -1,0 +1,44 @@
+.main {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 5px solid green;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    box-sizing: border-box;
+    background-color: #f2f2f2;
+    border: 5px solid blue;
+}
+
+.sidenav {
+    height: 100%;
+    width: 20%;
+    background-color: cadetblue;
+    overflow-x: hidden;
+    border: 5px solid yellowgreen;
+    box-sizing: border-box;
+    transition: 2s;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 5px solid red;
+}
+
+img {
+    width: 75px;
+    height: 75px;
+    padding: 10px;
+}
