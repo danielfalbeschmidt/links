@@ -19,7 +19,7 @@ error:      {"status": "error", "message": <err_msg>}
 
 ### GET /get_link_pair/<any_link>
 #### Response
-success:    {"status": "success", "data": {"_id": <id>, "key": <short_link>, "value": <long_link>}}
+success:    {"status": "success", "data": {"_id": <entry_id>, "key": <short_link>, "value": <long_link>}}
 error:      {"status": "error", "message": <err_msg>}
 
 ### DELETE /delete_link/<short_link>
