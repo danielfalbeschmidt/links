@@ -11,13 +11,13 @@ const Layout = () => {
     };
 
     let menuContent = (
-        <div className="sidenav">
+        <div className={`sidenav ${menuState ? 'open' : ''}`}>
             <ul>
                 <li>
-                    <Link to="/">Home</Link>
+                    <Link to="/" className="menu-link">Home</Link>
                 </li>
                 <li>
-                    <Link to="/settings">Settings</Link>
+                    <Link to="/settings" className="menu-link">Settings</Link>
                 </li>
             </ul>
         </div>
@@ -25,14 +25,18 @@ const Layout = () => {
   return (
     <>
         <div className="main">
-        {menuState && menuContent}
+        {menuContent}
 
         <div className="container">
             <header>
-                <img src="./src/assets/Hamburger_icon.svg" alt="Hamburger" onClick={toggleMenu}/>
-                <img src="./src/assets/Home_icon.png" alt="Home" onClick={() => {<Link to="/"/>}}/>
+                <img src="./src/assets/Hamburger_icon.svg" alt="Hamburger" onClick={toggleMenu} className={menuState ? 'img open' : 'img'}/>
+                <Link to="/">
+                    <img src="./src/assets/Home_icon.png" alt="Home" className="img"/>
+                </Link>
             </header>
-            <Outlet />
+            <div className="content">
+                <Outlet />
+            </div>
             </div>
         </div>
     </>
