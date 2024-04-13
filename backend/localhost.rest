@@ -1,0 +1,25 @@
+GET http://localhost:5000/health
+
+###
+
+GET http://localhost:5000/api/links
+
+###
+
+GET http://localhost:5000/api/links/
+
+###
+
+POST http://localhost:5000/api/links
+Content-Type: application/json
+
+{
+   // "name": "Youtube",
+    "url": "https://www.youtube.com"
+}
+
+###
+
+DELETE http://localhost:5000/api/links/empty
+
+###
