@@ -1,0 +1,15 @@
+{
+  "home": {
+    "title": "Home",
+    "longUrl": "Long Url",
+    "shortUrl": "Short Url",
+    "submit": "Submit"
+  },
+  "settings": {
+    "title": "Settings"
+  },
+  "layout": {
+    "homeTitle": "Home",
+    "settingsTitle": "Settings"
+  }
+}

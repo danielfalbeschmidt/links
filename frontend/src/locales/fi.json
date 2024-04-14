@@ -1,0 +1,15 @@
+{
+  "home": {
+    "title": "Koti",
+    "longUrl": "Pitkä Url",
+    "shortUrl": "Lyhyt Url",
+    "submit": "Lähetä"
+  },
+  "settings": {
+    "title": "Asetukset"
+  },
+  "layout": {
+    "homeTitle": "Koti",
+    "settingsTitle": "Asetukset"
+  }
+}

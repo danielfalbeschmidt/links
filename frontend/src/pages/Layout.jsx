@@ -1,9 +1,10 @@
 import { Outlet, Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 import { useState } from "react";
 import "./Layout.css";
 
 const Layout = () => {
-
+    const { t } = useTranslation();
     const [menuState, setMenuState] = useState(false);
 
     const toggleMenu = () => {
@@ -14,10 +15,10 @@ const Layout = () => {
         <div className={`sidenav ${menuState ? 'open' : ''}`}>
             <ul>
                 <li>
-                    <Link to="/" className="menu-link">Home</Link>
+                    <Link to="/" className="menu-link">{t('layout.homeTitle')}</Link>
                 </li>
                 <li>
-                    <Link to="/settings" className="menu-link">Settings</Link>
+                    <Link to="/settings" className="menu-link">{t('layout.settingsTitle')}</Link>
                 </li>
             </ul>
         </div>
