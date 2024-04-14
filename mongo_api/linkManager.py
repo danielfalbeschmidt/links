@@ -1,40 +1,58 @@
 from pymongo import MongoClient
 
+
 class LinkManager:
     def __init__(self):
-        self.client = MongoClient('mongodb://localhost:27017/')
-        self.db = self.client['links']
-        self.collection = self.db['links']
+        self.client = MongoClient("mongodb://localhost:27017/")
+        self.db = self.client["links"]
+        self.collection = self.db["links"]
 
-    def add_link_pair(self, link_pair):
-        """Add a link pair to the collection."""
+    def add_link_pair(self, payload):
+        """Add a link pair with associated user to the collection."""
+        # Ensure link_pair dictionary includes 'user', 'key', 'value'
+        if "key" not in payload or "value" not in payload or "user" not in payload:
+            return {
+                "status": "error",
+                "message": "Missing field(s)",
+            }
+
         try:
-            self.collection.insert_one(link_pair)
-            # Equivalent SQL: INSERT INTO links (key, value) VALUES ('key_from_link_pair', 'value_from_link_pair');
-            return {'status': 'success', 'message': 'Link pair added successfully.'}
+            # Equivalent SQL: INSERT INTO links (user, key, value) VALUES ('user', 'key', 'value');
+            self.collection.insert_one(payload)
+            return {"status": "success", "message": "Link pair added successfully."}
         except Exception as e:
-            return {'status': 'error', 'message': str(e)}
+            return {"status": "error", "message": str(e)}
 
-    def get_link_pair(self, any_link):
-        """Retrieve a link pair from the collection by any link."""
+    def get_link_pair(self, user, any_link):
+        """Retrieve a link pair from the collection by any link and associated user."""
         try:
-            result = self.collection.find_one({'$or': [{'key': any_link}, {'value': any_link}]})
-            # Equivalent SQL: SELECT * FROM links WHERE key = 'any_link' OR value = 'any_link';
+            # Equivalent SQL: SELECT * FROM links WHERE user = 'user' AND (key = 'any_link' OR value = 'any_link');
+            result = self.collection.find_one(
+                {
+                    "$and": [
+                        {"user": user},
+                        {"$or": [{"key": any_link}, {"value": any_link}]},
+                    ]
+                }
+            )
             if result:
-                return {'status': 'success', 'data': result}
+                return {"status": "success", "data": result}
             else:
-                return {'status': 'error', 'message': 'Link pair not found.'}
+                return {"status": "error", "message": "Link pair not found."}
         except Exception as e:
-            return {'status': 'error', 'message': str(e)}
+            return {"status": "error", "message": str(e)}
 
-    def delete_link(self, short_link):
-        """Delete a link pair from the collection by short link."""
+    def delete_link(self, user, short_link):
+        """Delete a link pair from the collection by short link and associated user."""
         try:
-            result = self.collection.delete_one({'key': short_link})
-            # Equivalent SQL: DELETE FROM links WHERE key = 'short_link';
+            # Equivalent SQL: DELETE FROM links WHERE user = 'user' AND key = 'short_link';
+            result = self.collection.delete_one({"user": user, "key": short_link})
             if result.deleted_count > 0:
-                return {'status': 'success', 'message': 'Link pair deleted successfully.'}
+                return {
+                    "status": "success",
+                    "message": "Link pair deleted successfully.",
+                }
             else:
-                return {'status': 'error', 'message': 'Link pair not found.'}
+                return {"status": "error", "message": "Link pair not found."}
         except Exception as e:
-            return {'status': 'error', 'message': str(e)}
+            return {"status": "error", "message": str(e)}
