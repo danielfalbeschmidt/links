@@ -8,7 +8,8 @@
     "invalidUrl": "Invalid URL"
   },
   "settings": {
-    "title": "Settings"
+    "title": "Settings",
+    "language": "Language"
   },
   "links": {
     "title": "Links",

@@ -8,7 +8,8 @@
     "invalidUrl": "Virheellinen Url"
   },
   "settings": {
-    "title": "Asetukset"
+    "title": "Asetukset",
+    "language": "Kieli"
   },
   "links": {
     "title": "Linkit",
