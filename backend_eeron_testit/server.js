@@ -25,6 +25,19 @@ app.post('/api/links', (req, res) => {
   res.json({ id: 1, name: 'linkki', originalUrl: url, workingLink: 'http://localhost:5000/'+trimmedUrl});
 });
 
+app.get('/api/links/:id', (req, res) => {
+  const { id } = req.params;
+  console.log('Received ID:', id);
+
+  res.json(
+    [
+      {id: 1, name: 'linkki1', originalUrl: 'https://www.google.com', workingLink: 'http://localhost:5000/linkki1'},
+      {id: 2, name: 'linkki2', originalUrl: 'https://www.google.com', workingLink: 'http://localhost:5000/linkki2'},
+      {id: 3, name: 'linkki3', originalUrl: 'https://www.google.com', workingLink: 'http://localhost:5000/linkki3'},
+    ]
+  );
+});
+
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });

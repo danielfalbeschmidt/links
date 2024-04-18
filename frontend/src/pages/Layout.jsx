@@ -18,6 +18,9 @@ const Layout = () => {
                     <Link to="/" className="menu-link">{t('layout.homeTitle')}</Link>
                 </li>
                 <li>
+                    <Link to="/links" className="menu-link">{t('layout.linksTitle')}</Link>
+                </li>
+                <li>
                     <Link to="/settings" className="menu-link">{t('layout.settingsTitle')}</Link>
                 </li>
             </ul>

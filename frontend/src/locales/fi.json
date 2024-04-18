@@ -3,13 +3,22 @@
     "title": "Koti",
     "longUrl": "Pitkä Url",
     "shortUrl": "Lyhyt Url",
-    "submit": "Lähetä"
+    "submit": "Lähetä",
+    "copiedToClipboard": "Kopioitu leikepöydälle",
+    "invalidUrl": "Virheellinen Url"
   },
   "settings": {
     "title": "Asetukset"
   },
+  "links": {
+    "title": "Linkit",
+    "name": "Nimi",
+    "longUrl": "Pitkä Url",
+    "shortUrl": "Lyhyt Url"
+  },
   "layout": {
     "homeTitle": "Koti",
-    "settingsTitle": "Asetukset"
+    "settingsTitle": "Asetukset",
+    "linksTitle": "Linkit"
   }
 }

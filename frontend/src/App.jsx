@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import Settings from "./pages/Settings";
+import Links from './pages/Links';
 import ErrorPage from "./pages/ErrorPage";
 import Cookies from 'js-cookie';
 
@@ -31,6 +32,7 @@ function App() {
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
               <Route path="settings" element={<Settings onLanguageChange={handleLanguageChange}/>} />
+              <Route path="links" element={<Links />} />
               <Route path="*" element={<ErrorPage />} />
             </Route>
           </Routes>

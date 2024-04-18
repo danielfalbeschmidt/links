@@ -1,0 +1,83 @@
+label {
+    font: 1.2em Verdana, sans-serif;
+  }
+
+.clipboard-img {
+    width: 1em;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.link-container {
+    width: 70%;
+    margin: 0 auto;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-container {
+    width: 100%;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f5f5;
+    padding: 7px;
+    margin: 5px;
+    border: 1px solid black;
+}
+
+.item  {
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+}
+
+.field {
+    width: 70%;
+    padding: 5px;
+    margin-bottom: 5px;
+    background-color: azure;
+    border: 1px solid black;
+    font: 1em Verdana, sans-serif;
+}
+
+.field p {
+    margin: 0;
+}
+
+label {
+    font: 1.2em Verdana, sans-serif;
+}
+
+.snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 100px;
+    font-size: 17px;
+}
+
+.snackbar.show {
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 100px; opacity: 1;}
+}
+
+@keyframes fadeout {
+    from {bottom: 100px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}

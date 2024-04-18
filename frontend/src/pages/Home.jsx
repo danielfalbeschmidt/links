@@ -6,6 +6,8 @@ const Home = () => {
   const { t } = useTranslation();
   const [url, setUrl] = useState('');
   const [shortUrl, setShortUrl] = useState('');
+  const [isVisible, setIsVisible] = useState(false);
+  const [message, setMessage] = useState('');
 
   function isValidUrl(url) {
     const urlPattern = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
@@ -15,7 +17,8 @@ const Home = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!isValidUrl(url)) {
-      alert(t('home.invalidUrl'));
+      setMessage(t('home.invalidUrl'));
+      showSnackbar();
       return;
     }
     try {
@@ -41,13 +44,21 @@ const Home = () => {
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(shortUrl);
-    alert(t('home.copiedToClipboard'));
+    setMessage(t('home.copiedToClipboard'));
+    showSnackbar();
+  };
+
+  const showSnackbar = () => {
+    setIsVisible(true);
+    setTimeout(() => {
+      setIsVisible(false);
+    }, 3000);
   };
 
   return (
     <>
       <div className="form-container">
-        <h2>{t('home.title')}</h2>
+      <h1>{t('home.title')}</h1>
         <form onSubmit={handleSubmit}>
           <div className='long-url-container'>
             <label style={{ padding: '5px' }}>
@@ -74,6 +85,7 @@ const Home = () => {
           )}
           <button type="submit" className='submit-button'>{t('home.submit')}</button>
         </form>
+        <div className={`snackbar ${isVisible ? 'show' : ''}`}>{message}</div>
       </div>
     </>
   );
