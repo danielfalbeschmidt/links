@@ -84,7 +84,7 @@ const createLink = async (req, res) => {
           const addedLink = await links.findLinkById(id);
 
           // Respond with the added link
-          res.json({addedLink});
+          res.json(addedLink);
       } else {
           // If insertion failed, respond with an error
           res.status(500).json({ message: "Could not add the link" });
