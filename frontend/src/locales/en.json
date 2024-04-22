@@ -1,0 +1,25 @@
+{
+  "home": {
+    "title": "Home",
+    "longUrl": "Long Url",
+    "shortUrl": "Short Url",
+    "submit": "Submit",
+    "copiedToClipboard": "Copied to clipboard",
+    "invalidUrl": "Invalid URL"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language"
+  },
+  "links": {
+    "title": "Links",
+    "name": "Name",
+    "longUrl": "Long Url",
+    "shortUrl": "Short Url"
+  },
+  "layout": {
+    "homeTitle": "Home",
+    "settingsTitle": "Settings",
+    "linksTitle": "Links"
+  }
+}

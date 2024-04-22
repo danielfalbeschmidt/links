@@ -1,6 +1,4 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-
-import './Navbar.css';
 import Home from './Home';
 import RootLayout from '../pages/Layout';
 import Settings from '../pages/Settings';

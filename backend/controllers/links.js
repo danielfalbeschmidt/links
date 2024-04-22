@@ -10,8 +10,6 @@ const linkSchema = Joi.object({
 });
 
 
-const urlMap = {};
-
 const getAllLinks = async (req, res) => {
   try {
       const response = await links.findAllLinks(); // Assuming a function findAllLinks() retrieves all items
@@ -74,13 +72,6 @@ const createLink = async (req, res) => {
           workingLink: `http://localhost:5000/${shortUrl}`
       };
 
-
-
-
-      urlMap[link.shortUrl] = link.originalUrl;
-
-      console.log("Current urlMap:", urlMap);
-
       // Create new link in the database
       const response = await links.createNewLink(link);
 
@@ -93,7 +84,7 @@ const createLink = async (req, res) => {
           const addedLink = await links.findLinkById(id);
 
           // Respond with the added link
-          res.json({addedLink});
+          res.json(addedLink);
       } else {
           // If insertion failed, respond with an error
           res.status(500).json({ message: "Could not add the link" });
@@ -118,10 +109,14 @@ const emptyDatabase = async (req, res) => {
     }
 }
 
-const redirectToOriginalUrl = (req, res) => {
+const redirectToOriginalUrl = async (req, res) => {
     try {
       const shortUrl = req.params.shortUrl;
-      const originalUrl = urlMap[shortUrl];
+      const { originalUrl } = await links.findLinkByShortUrl(shortUrl);
+
+    //  console.log("Original URL: " + originalUrl);
+    //  console.log("Short URL: " + shortUrl);
+
       if (originalUrl) {
         res.redirect(originalUrl);
       } else {

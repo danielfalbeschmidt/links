@@ -36,6 +36,8 @@ class LinkManager:
                 }
             )
             if result:
+                if '_id' in result:
+                    result['_id'] = str(result['_id'])
                 return {"status": "success", "data": result}
             else:
                 return {"status": "error", "message": "Link pair not found."}
