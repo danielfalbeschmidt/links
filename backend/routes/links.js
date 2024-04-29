@@ -5,8 +5,9 @@ const { createLink, getLinkById, getAllLinks, emptyDatabase } = require('../cont
 const router = express.Router();
 
 router.get('/', getAllLinks);
-router.get('/:id', getLinkById);
 
+
+router.get('/:id', getLinkById);
 
 router.post('/', createLink);
 

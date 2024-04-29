@@ -15,7 +15,8 @@ const links = {
         console.log('Connected to MongoDB');
 
         // Access your MongoDB database and collection
-        const database = client.db('testingDb');
+       // const database = client.db('testingDb');
+       const database = client.db('links');
         const collection = database.collection('links');
 
         // Find all items in the collection
@@ -39,7 +40,8 @@ const links = {
             console.log('Connected to MongoDB');
 
             // Access your MongoDB database and collection
-            const database = client.db('testingDb');
+           // const database = client.db('testingDb');
+           const database = client.db('links');
             const collection = database.collection('links');
 
             // Construct a query to search by ID
@@ -65,7 +67,8 @@ const links = {
             console.log('Connected to MongoDB');
 
             // Access your MongoDB database and collection
-            const database = client.db('testingDb');
+          //  const database = client.db('testingDb');
+          const database = client.db('links');
             const collection = database.collection('links');
 
             // Insert the new item into the collection
@@ -88,7 +91,8 @@ const links = {
         console.log('Connected to MongoDB');
 
         // Access your MongoDB database and collection
-        const database = client.db('testingDb');
+       // const database = client.db('testingDb');
+       const database = client.db('links');
         const collection = database.collection('links');
 
         // Construct a query to search for the link by original URL
@@ -116,7 +120,8 @@ const links = {
         console.log('Connected to MongoDB');
 
         // Access your MongoDB database and collection
-        const database = client.db('testingDb');
+      //  const database = client.db('testingDb');
+      const database = client.db('links');
         const collection = database.collection('links');
 
         // Construct a query to search for the link by original URL
@@ -144,7 +149,8 @@ const links = {
         console.log('Connected to MongoDB');
 
         // Access your MongoDB database and collection
-        const database = client.db('testingDb');
+      //  const database = client.db('testingDb');
+      const database = client.db('links');
         const collection = database.collection('links');
 
         // Delete all documents from the collection

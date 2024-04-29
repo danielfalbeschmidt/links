@@ -33,8 +33,8 @@ describe('POST links endpoint', () => {
 
           expect(response.status).toEqual(200);
           expect(response.headers['content-type']).toMatch(/json/);
-          expect(response.body.addedLink.originalUrl).toEqual("https://www.youtube.com");
-          expect(response.body.addedLink.shortUrl).toBeTruthy();
+          expect(response.body.originalUrl).toEqual("https://www.youtube.com");
+          expect(response.body.shortUrl).toBeTruthy();
     });
 });
 
@@ -55,7 +55,7 @@ describe('Short URL functionality', () => {
             .send({ "url": "https://www.youtube.com" });
 
         // Extract the short URL from the response
-        shortUrl = response.body.addedLink.shortUrl;
+        shortUrl = response.body.shortUrl;
     });
 
     test('Navigating a shortLink', async () => {
